@@ -105,6 +105,7 @@ public class HelloController {
      * @param value
      */
     protected void setValue(HttpServletRequest request,String value){
+        log.info("value is :"+value.toString());
         request.setAttribute("value",value);
     }
 
