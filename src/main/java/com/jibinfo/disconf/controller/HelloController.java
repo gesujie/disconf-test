@@ -3,8 +3,10 @@ package com.jibinfo.disconf.controller;
 /**
  * Created by admin on 2017/1/17.
  */
+
 import com.jibinfo.disconf.config.SimpleConfig;
 import com.jibinfo.disconf.config.TestConfig;
+import com.jibinfo.disconf.pojo.TestBean;
 import com.jibinfo.disconf.service.AutoService;
 import com.jibinfo.disconf.utils.DisconfPropertiesUtils;
 import lombok.extern.log4j.Log4j;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -38,22 +41,27 @@ public class HelloController {
     @RequestMapping("/index/{name}")
     public String index(HttpServletRequest request,@PathVariable("name") String name, Model model){
         this.setValue(request,simpleConfig.toString());
+        TestBean testBean = new TestBean();
+
+
         return "index";
     }
 
     @RequestMapping("/json")
     @ResponseBody
     public Map<String,Object> json(){
-        Map<String,Object> map = new HashMap<String,Object>();
+        Map<String,Object> map = new HashMap<>();
         map.put("name","Ryan");
         map.put("age","18");
         map.put("sex","man");
+
+
         return map;
     }
 
 
     @RequestMapping("/simple")
-    public String testSimpleConfig(HttpServletRequest request) throws InterruptedException {
+    public String testSimpleConfig(HttpServletRequest request, @RequestParam("name")String name) throws InterruptedException {
         log.info(simpleConfig.toString());
         this.setValue(request,simpleConfig.toString());
         return "index";
@@ -107,6 +115,14 @@ public class HelloController {
     protected void setValue(HttpServletRequest request,String value){
         log.info("value is :"+value.toString());
         request.setAttribute("value",value);
+        TestBean bean = new TestBean();
+
+
+
+
+
     }
+
+
 
 }

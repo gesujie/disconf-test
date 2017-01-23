@@ -104,6 +104,7 @@
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
+          <encoding>utf8</encoding>
         </configuration>
       </plugin>
       <!--开启热部署-->

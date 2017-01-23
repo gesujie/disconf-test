@@ -11,7 +11,7 @@ public class DisconfPropertiesUtils {
      * @param fileItem       key值
      * @return
      */
-    public static String getPropertiesValue(String fullFileName,String fileItem){
+    public static String getPropertiesValue(String fullFileName,String fileItem ){
         Object value = DisconfDataGetter.getByFileItem(fullFileName,fileItem);
         if(null != value){
             return value.toString();
