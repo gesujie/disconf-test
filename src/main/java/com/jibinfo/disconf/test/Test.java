@@ -1,6 +1,7 @@
 package com.jibinfo.disconf.test;
 
 import java.math.BigInteger;
+import java.util.Objects;
 
 /**
  * Created by admin on 2017/2/16.
@@ -18,6 +19,10 @@ public class Test {
 
             startIndex = endIndex;
         }
+
+
+        System.out.println(Objects.equals("a","b"));
+
 
     }
 }
